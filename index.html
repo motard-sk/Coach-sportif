@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coach Sportif — Course & Badminton</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🏃 Coach Sportif</h1>
+    <nav>
+      <button class="tab active" data-tab="dashboard">Accueil</button>
+      <button class="tab" data-tab="plans">Plans</button>
+      <button class="tab" data-tab="journal">Journal</button>
+      <button class="tab" data-tab="badminton">Badminton</button>
+      <button class="tab" data-tab="settings">Réglages</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard" class="panel active">
+      <h2>Prochaines échéances</h2>
+      <div id="countdowns" class="grid"></div>
+      <h2>Cette semaine</h2>
+      <div id="week-plan" class="card"></div>
+      <h2>Volume récent (km / semaine)</h2>
+      <div id="volume-chart" class="chart"></div>
+    </section>
+
+    <section id="plans" class="panel">
+      <h2>Plans d'entraînement</h2>
+      <p class="hint">Les plans sont générés à partir des dates de course et de ta charge hebdo actuelle. Ajuste les dates dans « Réglages ».</p>
+      <div id="plans-list"></div>
+    </section>
+
+    <section id="journal" class="panel">
+      <h2>Journal des séances</h2>
+      <form id="session-form" class="card">
+        <label>Date <input type="date" id="s-date" required></label>
+        <label>Type
+          <select id="s-type">
+            <option>Endurance fondamentale</option>
+            <option>Sortie longue</option>
+            <option>Seuil</option>
+            <option>Fractionné</option>
+            <option>Foulée / technique</option>
+            <option>Badminton</option>
+            <option>Repos / récupération</option>
+          </select>
+        </label>
+        <label>Durée (min) <input type="number" id="s-duration" min="0" required></label>
+        <label>Distance (km) <input type="number" id="s-distance" min="0" step="0.1"></label>
+        <label>Ressenti (1-5) <input type="number" id="s-feel" min="1" max="5"></label>
+        <label class="wide">Notes <input type="text" id="s-notes" placeholder="Optionnel"></label>
+        <button type="submit">Ajouter</button>
+      </form>
+      <div id="sessions-list"></div>
+    </section>
+
+    <section id="badminton" class="panel">
+      <h2>Badminton 🏸</h2>
+      <div class="card">
+        <h3>Objectif actuel</h3>
+        <p>Tournois de doubles loisirs : priorité au volume de course à pied le reste de l'année.
+        À partir de décembre 2026, garde 1 séance de badminton par semaine comme entretien
+        (explosivité + plaisir), sans compromettre les sorties longues du plan semi-marathon.</p>
+      </div>
+      <h3>Tournois</h3>
+      <form id="tournament-form" class="card">
+        <label>Date <input type="date" id="t-date" required></label>
+        <label>Partenaire <input type="text" id="t-partner" placeholder="Nom du partenaire"></label>
+        <label>Résultat <input type="text" id="t-result" placeholder="Ex : 2 matchs gagnés / 4"></label>
+        <label class="wide">Notes <input type="text" id="t-notes" placeholder="Optionnel"></label>
+        <button type="submit">Ajouter</button>
+      </form>
+      <div id="tournaments-list"></div>
+    </section>
+
+    <section id="settings" class="panel">
+      <h2>Réglages</h2>
+      <form id="settings-form" class="card">
+        <label>Semi-marathon 1 <input type="date" id="set-race1"></label>
+        <label>Semi-marathon 2 <input type="date" id="set-race2"></label>
+        <label>Marathon <input type="date" id="set-race3"></label>
+        <label>Km hebdo actuels <input type="number" id="set-weekly-km" min="0" step="1"></label>
+        <label>Allure semi visée (min/km) <input type="text" id="set-pace-semi" placeholder="Ex : 5:30"></label>
+        <label>Allure marathon visée (min/km) <input type="text" id="set-pace-marathon" placeholder="Ex : 5:55"></label>
+        <button type="submit">Enregistrer</button>
+      </form>
+      <button id="reset-data" class="danger">Effacer toutes les données</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+:root {
+  --bg: #0f1420;
+  --card: #1a2233;
+  --accent: #4f8cff;
+  --accent2: #2dd4a7;
+  --text: #e8ecf4;
+  --muted: #93a0b5;
+  --danger: #ff5d5d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  padding: 16px 20px 0;
+  border-bottom: 1px solid #26304a;
+}
+
+h1 { margin: 0 0 12px; font-size: 1.4rem; }
+
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+
+.tab {
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 14px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tab.active { color: var(--text); border-bottom-color: var(--accent); }
+
+main { padding: 20px; max-width: 900px; margin: 0 auto; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+h2 { font-size: 1.15rem; margin: 20px 0 10px; }
+h3 { font-size: 1rem; margin: 0 0 8px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.countdown-card { text-align: center; }
+.countdown-card .race-name { color: var(--muted); font-size: 0.9rem; }
+.countdown-card .days { font-size: 2rem; font-weight: 700; color: var(--accent); }
+.countdown-card .date { color: var(--muted); font-size: 0.85rem; }
+
+.hint { color: var(--muted); font-size: 0.9rem; }
+
+form.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  align-items: end;
+}
+
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: var(--muted); }
+label.wide { grid-column: 1 / -1; }
+
+input, select {
+  background: #0d1220;
+  border: 1px solid #2c3a5c;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.95rem;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+button.danger { background: var(--danger); margin-top: 8px; }
+
+.session-row, .plan-week {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--card);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  font-size: 0.92rem;
+}
+
+.session-row .meta { color: var(--muted); }
+.session-row button {
+  background: transparent;
+  color: var(--danger);
+  padding: 2px 8px;
+}
+
+.chart { display: flex; align-items: flex-end; gap: 6px; height: 140px; padding: 10px; background: var(--card); border-radius: 10px; }
+.bar { flex: 1; background: var(--accent2); border-radius: 4px 4px 0 0; min-height: 2px; position: relative; }
+.bar span {
+  position: absolute; bottom: -18px; left: 0; right: 0;
+  text-align: center; font-size: 0.65rem; color: var(--muted);
+}
+.bar b { position: absolute; top: -18px; left: 0; right: 0; text-align: center; font-size: 0.65rem; }
+
+.plan-week .sessions { flex: 1; }
+.plan-week .sessions div { padding: 2px 0; }
+.phase-tag { font-size: 0.75rem; color: var(--accent); font-weight: 600; }
+.week-label { font-weight: 600; color: var(--muted); min-width: 110px; }
